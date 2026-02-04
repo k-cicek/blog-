@@ -1,0 +1,13 @@
+{
+  "site": {
+    "title": "Easy Start",
+    "description": "This is an example English homepage"
+  },
+  "nav": {
+    "home": "Home",
+    "videos": "Videos",
+    "archive": "Archive",
+    "tags": "Tags",
+    "about": "About"
+  }
+}

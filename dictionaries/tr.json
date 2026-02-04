@@ -1,0 +1,13 @@
+{
+  "site": {
+    "title": "Kolay Başlangıç",
+    "description": "Bu bir örnek Türkçe ana sayfadır"
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "videos": "Videolar",
+    "archive": "Arşiv",
+    "tags": "Etiketler",
+    "about": "Hakkında"
+  }
+}
