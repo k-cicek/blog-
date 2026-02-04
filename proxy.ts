@@ -4,12 +4,16 @@ import { i18n } from "@/i18n";
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
-
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
+    pathname.startsWith("/.well-known") ||
     pathname.startsWith(".")
   ) {
+    return NextResponse.next();
+  }
+
+  if (/\.[a-zA-Z0-9]+$/.test(pathname)) {
     return NextResponse.next();
   }
 
