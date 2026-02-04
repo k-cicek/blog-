@@ -13,8 +13,8 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
-
-type Dict = Awaited<ReturnType<typeof import('@/lib/dictionaries').getDictionary>>
+import { Dict } from "@/constans/types";
+import MobileMenu from "./MobileMenu";
 
 interface SiteHeaderProps {
     locale: Locale;
@@ -91,7 +91,7 @@ const SiteHeader = ({ locale, dict }: SiteHeaderProps) => {
                     </Select>
 
                     <div className="flex lg:hidden">
-                        <MenuIcon />
+                        <MobileMenu locale={locale} dict={dict} />
                     </div>
                 </div>
             </div>
