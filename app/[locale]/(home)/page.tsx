@@ -1,3 +1,5 @@
+import BlogGrid from "@/components/layout/BlogGrid";
+import Hero from "@/components/layout/Hero";
 import { ModeToggle } from "@/components/layout/ModeToggle";
 import { Button } from "@/components/ui/button";
 import { i18n, Locale } from "@/i18n";
@@ -15,10 +17,9 @@ export default async function Home({ params }: HomePageProps) {
   const dict = await getDictionary(locale);
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold">{dict.site.title}</h1>
-      <p className="mt-4">{dict.site.description}</p>
-      <ModeToggle />
-    </div>
+    <>
+      <Hero />
+      <BlogGrid />
+    </>
   );
 }

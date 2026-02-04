@@ -1,3 +1,4 @@
+import SiteFooter from '@/components/layout/SiteFooter'
 import SiteHeader from '@/components/layout/SiteHeader'
 import { i18n, Locale } from '@/i18n'
 import { getDictionary } from '@/lib/dictionaries'
@@ -18,7 +19,10 @@ const LocaleLayout = async ({ children, params }: LayoutProps) => {
     return (
         <div>
             <SiteHeader locale={locale} dict={dict} />
-            {children}
+            <div className='min-h-screen'>
+                {children}
+            </div>
+            <SiteFooter locale={locale} dict={dict} />
         </div>
     )
 }
