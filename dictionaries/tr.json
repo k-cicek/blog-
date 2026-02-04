@@ -9,5 +9,17 @@
     "archive": "Arşiv",
     "tags": "Etiketler",
     "about": "Hakkında"
+  },
+  "footer": {
+    "recentPostsTitle": "Son Yazılar",
+    "menuTitle": "Menü",
+    "pagesTitle": "Sayfalar",
+    "pages": {
+      "about": "Hakkımda",
+      "contact": "İletişim",
+      "elements": "Bileşenler"
+    },
+    "copyrightPrefix": "Tüm hakları saklıdır.",
+    "publishedWith": "Yayın altyapısı"
   }
 }
