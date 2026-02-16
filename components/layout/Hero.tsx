@@ -1,7 +1,23 @@
 import Image from "next/image"
 import { Button } from "../ui/button"
+import Link from "next/link";
 
-const Hero = () => {
+export interface HeroContent {
+    hero_title: string;
+    hero_subtitle?: string | null;
+    hero_caption?: string | null;
+    hero_paragraph1?: string | null;
+    hero_paragraph2?: string | null;
+    hero_paragraph3?: string | null;
+    hero_cta_label?: string | null;
+    hero_cta_url?: string | null;
+};
+
+interface HeroProps {
+    content: HeroContent;
+}
+
+const Hero = ({ content }: HeroProps) => {
     return (
         <div className="flex border max-w-7xl mx-auto mt-8 bg-mycolor1/80 rounded-4xl text-mycolor2 py-16">
             <div className="mx-auto px-10 py-4 flex flex-col lg:flex-row gap-10">
@@ -15,7 +31,7 @@ const Hero = () => {
                             className="w-full h-[580px] object-cover"
                         />
                         <p className="text-center px-4 py-3 text-xs text-mycolor2/60 border-t border-mycolor2/10">
-                            Lorem ipsum dolor sit amet.
+                            {content.hero_caption || "I build responsive and accessible web applications."}
                         </p>
                     </div>
                 </div>
@@ -27,17 +43,21 @@ const Hero = () => {
                         height={80}
                         className="rounded-full border border-mycolor2/10"
                     />
-                    <h1 className="text-5xl font-semibold">Hi! I'm Kevser</h1>
-                    <h2 className="text-xl font-medium text-mycolor2/80">Frontend Developer</h2>
+                    <h1 className="text-5xl font-semibold">{content.hero_title}</h1>
+                    <h2 className="text-xl font-medium text-mycolor2/80">{content.hero_subtitle}</h2>
                     <div className="space-y-4 text-lg text-mycolor2/30 leading-relaxed">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia eius rem magnam quo possimus vitae. Dolores illo, architecto assumenda laboriosam praesentium laborum consectetur eveniet fugit!</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia eius rem magnam quo possimus vitae. Dolores illo, architecto assumenda laboriosam praesentium laborum consectetur eveniet fugit!</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia eius rem magnam quo possimus vitae. Dolores illo, architecto assumenda laboriosam praesentium laborum consectetur eveniet fugit!</p>
+                        {content.hero_paragraph1 && <p>{content.hero_paragraph1}</p>}
+                        {content.hero_paragraph2 && <p>{content.hero_paragraph2}</p>}
+                        {content.hero_paragraph3 && <p>{content.hero_paragraph3}</p>}
                     </div>
                     <div>
-                        <Button variant={"secondary"} size={"lg"}>
-                            Let' work together
-                        </Button>
+                        {content.hero_cta_label && (
+                            <Link href={content.hero_cta_url || "/"} className="no-underline">
+                                <Button variant={"secondary"} size={"lg"}>
+                                    {content.hero_cta_label}
+                                </Button>
+                            </Link>
+                        )}
                     </div>
                 </div>
             </div>
